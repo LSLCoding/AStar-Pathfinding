@@ -36,7 +36,6 @@ public class GridPanel extends JPanel implements Observer {
         this.defaultStroke = new BasicStroke();
         this.widerStroke = new BasicStroke(2);
 
-        
         setBorder(new LineBorder(Color.gray));
         
         addMouseListener(new MouseListener() {
@@ -79,8 +78,7 @@ public class GridPanel extends JPanel implements Observer {
         super.paintComponent(g1);
 
         Graphics2D g = (Graphics2D) g1;
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         if (start != null) {
 
@@ -123,17 +121,17 @@ public class GridPanel extends JPanel implements Observer {
         g.setStroke(defaultStroke);
 
         if (grid != null && grid.getTiles() != null) {
-            for (Tile t : grid.getTiles()) {
+            grid.getTiles().forEach(tile -> {
                 g.setColor(new Color(220, 220, 220));
-                g.drawRect(t.getX() * Tile.TILE_SIZE, t.getY() * Tile.TILE_SIZE, Tile.TILE_SIZE, Tile.TILE_SIZE);
-                if (!t.isValid()) {
+                g.drawRect(tile.getX() * Tile.TILE_SIZE, tile.getY() * Tile.TILE_SIZE, Tile.TILE_SIZE, Tile.TILE_SIZE);
+                if (!tile.isValid()) {
                     g.setColor(Color.GRAY);
-                    int x = (t.getX() * Tile.TILE_SIZE) + (Tile.TILE_SIZE / 2) - 5;
-                    int y = (t.getY() * Tile.TILE_SIZE) + (Tile.TILE_SIZE / 2) - 5;
+                    int x = (tile.getX() * Tile.TILE_SIZE) + (Tile.TILE_SIZE / 2) - 5;
+                    int y = (tile.getY() * Tile.TILE_SIZE) + (Tile.TILE_SIZE / 2) - 5;
 
                     g.fillOval(x, y, 10, 10);
                 }
-            }
+            });
         }
 
         g.drawRect(getWidth() - 1, 0, 1, getHeight());
@@ -155,12 +153,12 @@ public class GridPanel extends JPanel implements Observer {
 
         this.path = new ArrayList<Tile>();
 
-        if (path != null) {
-            for (Node n : path) {
-                if (n instanceof Tile) {
-                    this.path.add((Tile) n);
+        if(path != null) {
+            path.forEach(node -> {
+                if (node instanceof Tile) {
+                    this.path.add((Tile) node);
                 }
-            }
+            });
         }
 
         if (start != null && start instanceof Tile) {

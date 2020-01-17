@@ -25,9 +25,10 @@ public class Launcher {
     public static void main(String[] args) {
         
         Grid grid = generateGrid(COLUMN_COUNT, ROW_COUNT);
-        for (Tile t : grid.getTiles()) {
-            t.calculateNeighbours(grid);
-        }
+
+        grid.getTiles().forEach(tile -> {
+            tile.calculateNeighbours(grid);
+        });
         
         astar = new AStarAlgorithm(grid);
         

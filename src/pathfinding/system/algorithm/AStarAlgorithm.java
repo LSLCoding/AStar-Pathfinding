@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import pathfinding.system.algorithm.element.Network;
 import pathfinding.system.algorithm.element.Node;
 
-@Getter @Setter
+@Getter @Setter @RequiredArgsConstructor
 public class AStarAlgorithm extends Observable {
 
-    private Network network;
+    private final Network network;
     private ArrayList<Node> path;
 
     private Node start;
@@ -20,15 +21,9 @@ public class AStarAlgorithm extends Observable {
     private ArrayList<Node> openList;
     private ArrayList<Node> closedList;
 
-    public AStarAlgorithm(Network network) {
-        this.network = network;
-    }
-
     public void solve() {
 
-        if (start == null && end == null) {
-            return;
-        }
+        if (start == null && end == null) return;
 
         if (start.equals(end)) {
             this.path = new ArrayList<>();
@@ -88,9 +83,7 @@ public class AStarAlgorithm extends Observable {
         this.path = null;
         this.openList = null;
         this.closedList = null;
-        for (Node n : network.getNodes()) {
-            n.setValid(true);
-        }
+        network.getNodes().forEach(node -> node.setValid(true));
     }
 
     private void retracePath(Node current) {
