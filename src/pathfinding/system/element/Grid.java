@@ -1,9 +1,13 @@
-package example.element;
+package pathfinding.system.element;
 
 import java.util.ArrayList;
-import pathfinding.element.Network;
-import pathfinding.element.Node;
 
+import lombok.Getter;
+import lombok.Setter;
+import pathfinding.system.algorithm.element.Network;
+import pathfinding.system.algorithm.element.Node;
+
+@Getter @Setter
 public class Grid extends Network{
 
     private int width, height;
@@ -13,18 +17,6 @@ public class Grid extends Network{
         this.width = width;
         this.height = height;
         this.tiles = tiles;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public ArrayList<Tile> getTiles() {
-        return tiles;
     }
     
     public Tile find(int x, int y){

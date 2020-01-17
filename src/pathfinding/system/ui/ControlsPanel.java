@@ -1,6 +1,6 @@
-package example.ui;
+package pathfinding.system.ui;
 
-import example.element.Tile;
+import pathfinding.system.element.Tile;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import pathfinding.AStarAlgorithm;
+import pathfinding.system.algorithm.AStarAlgorithm;
 
 public class ControlsPanel extends JPanel {
 

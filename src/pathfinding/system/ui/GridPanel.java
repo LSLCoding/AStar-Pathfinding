@@ -1,7 +1,7 @@
-package example.ui;
+package pathfinding.system.ui;
 
-import example.element.Grid;
-import example.element.Tile;
+import pathfinding.system.element.Grid;
+import pathfinding.system.element.Tile;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,8 +14,8 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import pathfinding.AStarAlgorithm;
-import pathfinding.element.Node;
+import pathfinding.system.algorithm.AStarAlgorithm;
+import pathfinding.system.algorithm.element.Node;
 
 public class GridPanel extends JPanel implements Observer {
 

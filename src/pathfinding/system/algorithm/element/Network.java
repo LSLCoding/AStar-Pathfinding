@@ -1,4 +1,4 @@
-package pathfinding.element;
+package pathfinding.system.algorithm.element;
 
 public abstract class Network {
     

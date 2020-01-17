@@ -1,10 +1,14 @@
-package pathfinding;
+package pathfinding.system.algorithm;
 
 import java.util.ArrayList;
 import java.util.Observable;
-import pathfinding.element.Network;
-import pathfinding.element.Node;
 
+import lombok.Getter;
+import lombok.Setter;
+import pathfinding.system.algorithm.element.Network;
+import pathfinding.system.algorithm.element.Node;
+
+@Getter @Setter
 public class AStarAlgorithm extends Observable {
 
     private Network network;
@@ -116,29 +120,4 @@ public class AStarAlgorithm extends Observable {
         notifyObservers();
         clearChanged();
     }
-
-    public Network getNetwork() {
-        return network;
-    }
-
-    public ArrayList<Node> getPath() {
-        return path;
-    }
-
-    public Node getStart() {
-        return start;
-    }
-
-    public Node getEnd() {
-        return end;
-    }
-
-    public void setStart(Node start) {
-        this.start = start;
-    }
-
-    public void setEnd(Node end) {
-        this.end = end;
-    }
-
 }

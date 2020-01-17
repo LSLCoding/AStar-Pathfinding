@@ -1,10 +1,14 @@
-package example.element;
+package pathfinding.system.element;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import pathfinding.element.Network;
-import pathfinding.element.Node;
 
+import lombok.Getter;
+import lombok.Setter;
+import pathfinding.system.algorithm.element.Network;
+import pathfinding.system.algorithm.element.Node;
+
+@Getter @Setter
 public class Tile extends Node {
 
     private int x, y;
@@ -14,14 +18,6 @@ public class Tile extends Node {
         this.x = x;
         this.y = y;
         setValid(true);
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     @Override
